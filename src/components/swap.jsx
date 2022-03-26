@@ -55,7 +55,7 @@ export default function Swap() {
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
                 <div class="row">
                     <div class="col">
-                        <input type="number"/>
+                        <input onChange={(e)=>setOutputAmount(e.target.value)} type="number"/>
                     </div>
                     <div class="col">
                         <p>{fromValue.value}</p>
