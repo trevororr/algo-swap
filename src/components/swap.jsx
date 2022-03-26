@@ -22,6 +22,7 @@ export default function Swap() {
     const [fromValue, setFrom] = useState(options[0]);
     const [toValue, setTo] = useState(options[1]);
     const [hoverSwap, setHoverSwap] = useState(false);
+    const [outputAmount, setOutputAmount] = useState(0);
 
     const handleFromChange = (selectedOption) => {
         setFrom(selectedOption);
@@ -71,6 +72,7 @@ export default function Swap() {
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={toValue} onChange={handleToChange} options={options}/>
+            <p>{outputAmount} {toValue.value}</p>
             </div>
         </div>
         <Button style={{margin:'50px', width:'280px', backgroundColor:'white', border:'black solid 2px', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
