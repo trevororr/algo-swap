@@ -3,12 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Select from 'react-select';
 import swapSideIcon from '../imgs/swapSide.png';
+import downArrow from '../imgs/downArrow.png';
 import logo from '../imgs/swapAlgoLogo.png';
 import algoLogo from '../imgs/algoLogo.png';
 import ethLogo from '../imgs/ethLogo.png';
 import bnbLogo from '../imgs/bnbLogo.png';
 
 export default function Swap() {
+
+
     const options = [
         { value: 'algo', label: <div><img src={algoLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ALGO </div> },
         { value: 'eth', label: <div><img src={ethLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ETH </div> },
@@ -18,6 +21,7 @@ export default function Swap() {
     const [error, setError] = useState('');
     const [fromValue, setFrom] = useState(options[0]);
     const [toValue, setTo] = useState(options[1]);
+    const [hoverSwap, setHoverSwap] = useState(false);
 
     const handleFromChange = (selectedOption) => {
         setFrom(selectedOption);
@@ -47,22 +51,24 @@ export default function Swap() {
             <img src={logo} alt='' style={{width:'240px', marginBottom:'50px'}}/>
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
-            <h1 style={{fontSize:'25px', fontWeight:'normal', textAlign:'right'}}>From:</h1>
-            </div>
-            <div className='col' style={{margin:'auto'}}>
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
+                <div class="row">
+                    <div class="col">
+                        <input type="number"/>
+                    </div>
+                    <div class="col">
+                        <p>{fromValue.value}</p>
+                    </div>
+            
+                </div>
             </div>
         </div>
         <div className='row' style={{maxWidth:'330px'}}>
-            <div className='col' style={{margin:'auto'}}></div>
             <div className='col' style={{margin:'auto'}}>
-                <img src={swapSideIcon} alt='' onClick={swapSide} style={{margin:'10px'}} />
+                <img src={ hoverSwap? swapSideIcon:downArrow} alt='' onClick={swapSide} style={{margin:'10px', cursor:'pointer'}} onMouseEnter={()=>setHoverSwap(true)} onMouseLeave={()=>setHoverSwap(false)} />
             </div>
         </div>
         <div className='row' style={{maxWidth:'330px'}}>
-            <div className='col' style={{margin:'auto'}}>
-            <h1 style={{fontSize:'25px', fontWeight:'normal', textAlign:'right'}}>To:</h1>
-            </div>
             <div className='col' style={{margin:'auto'}}>
             <Select value={toValue} onChange={handleToChange} options={options}/>
             </div>
