@@ -8,14 +8,15 @@ import logo from '../imgs/swapAlgoLogo.png';
 import algoLogo from '../imgs/algoLogo.png';
 import ethLogo from '../imgs/ethLogo.png';
 import bnbLogo from '../imgs/bnbLogo.png';
+import '../bggradient.css';
 
 export default function Swap() {
 
 
     const options = [
-        { value: 'algo', label: <div><img src={algoLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ALGO </div> },
-        { value: 'eth', label: <div><img src={ethLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ETH </div> },
-        { value: 'bnb', label: <div><img src={bnbLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>BNB </div> }
+        { value: 'ALGO', label: <div><img src={algoLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ALGO </div> },
+        { value: 'ETH', label: <div><img src={ethLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>ETH </div> },
+        { value: 'BNB', label: <div><img src={bnbLogo} height="30px" style={{paddingRight: '5px'}} alt=''/>BNB </div> }
     ];
 
     const [error, setError] = useState('');
@@ -23,6 +24,14 @@ export default function Swap() {
     const [toValue, setTo] = useState(options[1]);
     const [hoverSwap, setHoverSwap] = useState(false);
     const [outputAmount, setOutputAmount] = useState(0);
+
+    const connect = () => {
+        document.getElementById('connectButton').style.display = "none";
+        document.getElementById('swapScreen').style.visibility = "visible";
+        document.getElementById('screenBg').style.border = "#C6C6C6 1px solid";
+        document.getElementById('screenBg').style.animation = "none";
+        document.getElementById('logo').style.filter = "invert(0)";
+    }
 
     const handleFromChange = (selectedOption) => {
         setFrom(selectedOption);
@@ -49,18 +58,20 @@ export default function Swap() {
 
     return(
         <div align='center' style={{marginTop:'80px'}}>
-            <img src={logo} alt='' style={{width:'240px', marginBottom:'50px'}}/>
+        <div id='screenBg' style={{width:'450px', height:'625px', backgroundColor:'black', borderRadius:'10px'}}>
+            <img id='logo' src={logo} alt='' style={{width:'240px', margin:'50px', filter: 'invert(1)'}}/>
+            <div  id='connectButton'><Button onClick={connect} style={{padding:'10px', marginTop:'80px', width:'200px', backgroundColor:'#88888830', border:'white solid 1px', fontSize:'20px', color:'white'}}>Connect</Button></div>
+        <div id='swapScreen' style={{visibility:'hidden'}}>
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
-                <div class="row">
+                <div class="row" style={{marginTop:'10px'}}>
                     <div class="col">
-                        <input type="number"/>
+                        <input type="number" style={{border:'#C6C6C6 1px solid'}}/>
                     </div>
                     <div class="col">
                         <p>{fromValue.value}</p>
                     </div>
-            
                 </div>
             </div>
         </div>
@@ -72,11 +83,13 @@ export default function Swap() {
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={toValue} onChange={handleToChange} options={options}/>
-            <p>{outputAmount} {toValue.value}</p>
+            <p style={{marginTop:'10px'}}>{outputAmount} {toValue.value}</p>
             </div>
         </div>
-        <Button style={{margin:'50px', width:'280px', backgroundColor:'white', border:'black solid 2px', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
+        <Button style={{margin:'50px', width:'280px', backgroundColor:'white', border:'#C6C6C6 1px solid', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
+        </div>
         {error && <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>}
+        </div>
         </div>
     );
 }

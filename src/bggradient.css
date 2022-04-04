@@ -1,0 +1,30 @@
+#screenBg {
+	background: linear-gradient(to right, #963beb, #830bba, #c00fb4, #e9d596);
+    background-size: 370% 370%!important;
+    
+	-webkit-animation: bggradient 30s ease-in-out infinite;
+	-moz-animation: bggradient 30s ease-in-out infinite;
+	-o-animation: bggradient 30s ease-in-out infinite;
+	animation: bggradient 30s ease-in-out infinite;
+	font-size:16px;
+}
+@-webkit-keyframes bggradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes bggradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes bggradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes bggradient { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
