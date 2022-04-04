@@ -67,7 +67,9 @@ export default function Swap() {
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
                 <div class="row" style={{marginTop:'10px'}}>
                     <div class="col">
-                        <input type="number" style={{border:'#C6C6C6 1px solid'}}/>
+
+                        <input type="number" onChange={(e)=>setOutputAmount(e.target.value)} style={{border:'#C6C6C6 1px solid'}}/>
+
                     </div>
                     <div class="col">
                         <p>{fromValue.value}</p>
