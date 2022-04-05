@@ -24,13 +24,16 @@ export default function Swap() {
     const [toValue, setTo] = useState(options[1]);
     const [hoverSwap, setHoverSwap] = useState(false);
     const [outputAmount, setOutputAmount] = useState(0);
+    const [connected, setConnected] = useState(false);
 
     const connect = () => {
+        setConnected(true);
         document.getElementById('connectButton').style.display = "none";
         document.getElementById('swapScreen').style.visibility = "visible";
         document.getElementById('screenBg').style.border = "#C6C6C6 1px solid";
-        document.getElementById('screenBg').style.animation = "none";
-        document.getElementById('logo').style.filter = "invert(0)";
+        document.getElementById('screenBg').style.animation = "shrink 0.5s, bggradient 20s ease-in-out infinite";
+        document.getElementById('screenBg').style.animationFillMode = "forwards";
+        /*document.getElementById('logo').style.filter = "invert(0)";*/
     }
 
     const handleFromChange = (selectedOption) => {
@@ -58,10 +61,14 @@ export default function Swap() {
 
     return(
         <div align='center' style={{marginTop:'80px'}}>
-        <div id='screenBg' style={{width:'450px', height:'625px', backgroundColor:'black', borderRadius:'10px'}}>
+        <div style={{width:'350px', height:'625px', borderRadius:'10px', border: '1px solid #c8c8c8'}}>
+        <div id="screenBg" style={{width:'350px', borderRadius:'10px', zIndex:"-1", position:'absolute'}}></div>
             <img id='logo' src={logo} alt='' style={{width:'240px', margin:'50px', filter: 'invert(1)'}}/>
             <div  id='connectButton'><Button onClick={connect} style={{padding:'10px', marginTop:'80px', width:'200px', backgroundColor:'#88888830', border:'white solid 1px', fontSize:'20px', color:'white'}}>Connect</Button></div>
         <div id='swapScreen' style={{visibility:'hidden'}}>
+        
+        {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:<><br/><br/></>}
+        
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
@@ -88,9 +95,11 @@ export default function Swap() {
             <p style={{marginTop:'10px'}}>{outputAmount} {toValue.value}</p>
             </div>
         </div>
-        <Button style={{margin:'50px', width:'280px', backgroundColor:'white', border:'#C6C6C6 1px solid', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
+        <br/>
+        <Button style={{margin:'auto', width:'280px', backgroundColor:'white', border:'#C6C6C6 1px solid', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
+        
         </div>
-        {error && <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>}
+       
         </div>
         </div>
     );
