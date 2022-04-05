@@ -66,7 +66,7 @@ export default function Swap() {
             <img id='logo' src={logo} alt='' style={{width:'240px', margin:'50px', filter: 'invert(1)'}}/>
             <div  id='connectButton'><Button onClick={connect} style={{padding:'10px', marginTop:'80px', width:'200px', backgroundColor:'#88888830', border:'white solid 1px', fontSize:'20px', color:'white'}}>Connect</Button></div>
         <div id='swapScreen' style={{visibility:'hidden'}}>
-        
+        {connected? <></>:null}
         {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:<><br/><br/></>}
         
         <div className='row' style={{maxWidth:'330px'}}>
