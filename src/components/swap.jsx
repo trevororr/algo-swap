@@ -25,8 +25,25 @@ export default function Swap() {
     const [hoverSwap, setHoverSwap] = useState(false);
     const [outputAmount, setOutputAmount] = useState(0);
     const [connected, setConnected] = useState(false);
-
-    const connect = () => {
+    
+    const connect = async () => {
+        let error = false;
+        try{
+            let connection = await window.ethereum.request({
+                method: 'wallet_enable',
+                params: [{
+                    wallet_snap: { ['npm:algorand']: {} },
+                }]
+            })
+        console.log(connection);
+        }catch(e){
+            error = true;
+            console.log('error', e);
+        }
+        if(error){
+            alert("this app requires metamask flask at the current time");
+            return "failed";
+        }
         setConnected(true);
         document.getElementById('connectButton').style.display = "none";
         document.getElementById('swapScreen').style.visibility = "visible";
