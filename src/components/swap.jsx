@@ -32,7 +32,7 @@ export default function Swap() {
             let connection = await window.ethereum.request({
                 method: 'wallet_enable',
                 params: [{
-                    wallet_snap: { ['npm:algorand']: {} },
+                    wallet_snap: { 'npm:algorand': {} },
                 }]
             })
         console.log(connection);
