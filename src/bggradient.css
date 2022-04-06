@@ -1,12 +1,27 @@
 #screenBg {
 	background: linear-gradient(to right, #963beb, #830bba, #c00fb4, #e9d596);
     background-size: 370% 370%!important;
-    
-	-webkit-animation: bggradient 30s ease-in-out infinite;
-	-moz-animation: bggradient 30s ease-in-out infinite;
-	-o-animation: bggradient 30s ease-in-out infinite;
-	animation: bggradient 30s ease-in-out infinite;
+    height: 625px;
+	-webkit-animation: bggradient 20s ease-in-out infinite;
+	-moz-animation: bggradient 20s ease-in-out infinite;
+	-o-animation: bggradient 20s ease-in-out infinite;
+	animation: bggradient 20s ease-in-out infinite;
 	font-size:16px;
+    
+}
+#swapButton{
+    background: linear-gradient(to right, #963beb, #830bba, #c00fb4, #e9d596);
+    background-size: 370% 370%!important;
+    animation: bggradient 20s ease-in-out infinite;
+    color:white;
+    border: #C6C6C6 1px solid!important;
+    border-radius:10px;
+}
+@keyframes shrink {
+    
+    to {
+        height: 20%;
+    }
 }
 @-webkit-keyframes bggradient {
     0%{background-position:0% 50%}
