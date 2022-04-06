@@ -16,6 +16,8 @@ function App() {
             <p>This is swap algo a effortless way to swap BNB or Ether to and from ALGO at this time this does not work and is currently under development</p>
             <p>To use this app you must first download metamask flask which can be found here</p>
             <a href="https://metamask.io/flask/">https://metamask.io/flask/</a>
+            <p>you can access your algorand wallet at</p>
+            <a href="https://snapalgowallet.netlify.app/">https://snapalgowallet.netlify.app/</a>
           </div>
         </div>
         <div class="col">

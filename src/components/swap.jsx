@@ -117,7 +117,7 @@ export default function Swap() {
             </div>
         </div>
         <br/>
-        <Button style={{margin:'auto', width:'280px', backgroundColor:'white', border:'#C6C6C6 1px solid', fontSize:'20px', color:'black'}} onClick={swapToken}>Swap</Button>
+        <Button id="swapButton" style={{margin:'auto', width:'120px', fontSize:'20px'}} onClick={swapToken}>Swap</Button>
         
         </div>
        
