@@ -77,15 +77,19 @@ export default function Swap() {
     }
 
     return(
-        <div align='center' style={{marginTop:'80px'}}>
-        <div style={{width:'350px', height:'625px', borderRadius:'10px', border: '1px solid #c8c8c8'}}>
-        <div id="screenBg" style={{width:'350px', borderRadius:'10px', zIndex:"-1", position:'absolute'}}></div>
+        
+        <div style={{width:'350px', height:'625px', backgroundColor:"white", borderRadius:'10px', border: '1px solid #c8c8c8'}}>
+        <div id="screenBg" align="center" style={{width:'350px', borderRadius:'10px', zIndex:"1", position:'absolute'}}>
             <img id='logo' src={logo} alt='' style={{width:'240px', margin:'50px', filter: 'invert(1)'}}/>
             <div  id='connectButton'><Button onClick={connect} style={{padding:'10px', marginTop:'80px', width:'200px', backgroundColor:'#88888830', border:'white solid 1px', fontSize:'20px', color:'white'}}>Connect</Button></div>
-        <div id='swapScreen' style={{visibility:'hidden'}}>
+        </div>
+        <div align="center">
+        
+           
+        <div id='swapScreen' style={{visibility:'hidden', marginTop: '45%'}}>
+        
         {connected? <></>:null}
         {error? <Alert variant='danger' style={{width:'230px'}}>{error}</Alert>:<><br/><br/></>}
-        
         <div className='row' style={{maxWidth:'330px'}}>
             <div className='col' style={{margin:'auto'}}>
             <Select value={fromValue} onChange={handleFromChange} options={options}/>
