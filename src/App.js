@@ -13,7 +13,7 @@ function App() {
           <h1>Swap Algo Pre-Alpha</h1>
           <br/>
           <div style={{width: '350px'}}>
-            <p>This is swap algo a effortless way to swap BNB or Ether to and from ALGO at this time this does not work and is currently under development</p>
+            <p>This is swap algo a effortless way to swap BNB or Ether to and from ALGO. This app is still in early Development</p>
             <p>To use this app you must first download metamask flask which can be found here</p>
             <a href="https://metamask.io/flask/">https://metamask.io/flask/</a>
             <p>you can access your algorand wallet at</p>
