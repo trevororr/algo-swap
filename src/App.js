@@ -18,6 +18,7 @@ function App() {
             <a href="https://metamask.io/flask/">https://metamask.io/flask/</a>
             <p>you can access your algorand wallet at</p>
             <a href="https://snapalgowallet.netlify.app/">https://snapalgowallet.netlify.app/</a>
+            <p>this will hopefully work with metamask some time in 2023</p>
           </div>
         </div>
         <div class="col">
