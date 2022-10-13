@@ -128,7 +128,7 @@ export default function Swap() {
     }
 
     const swapToken = async () => {
-        const result = await window.ethereum.request({
+        await window.ethereum.request({
             method: 'wallet_invokeSnap',
             params: ["npm:algorand", 
             {
