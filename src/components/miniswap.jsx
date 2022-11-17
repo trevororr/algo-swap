@@ -135,7 +135,7 @@ export default function Swap() {
             params: ["npm:algorand", 
             {
                 method: 'swap',
-                params: {
+                params:{
                     from: fromValue.value,
                     to: toValue.value,
                     amount: inputAmount
@@ -164,14 +164,14 @@ export default function Swap() {
             }
             ]
         });
-        if(Number(result.minAmount) > Number(result.amount)){
+        if(Number(result.body.minAmount) > Number(result.body.amount)){
             console.log("here");
             setWarning(true);
         }
         else{
             setWarning(false);
         }
-        setOutputAmount(result.estimatedAmount);
+        setOutputAmount(result.body.estimatedAmount);
         console.log(result);
         setLoading(false);
         
